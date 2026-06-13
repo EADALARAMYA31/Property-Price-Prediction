@@ -1,11 +1,13 @@
 import psycopg2
 import bcrypt
+import streamlit as st
+
 conn = psycopg2.connect(
-    host="localhost",
-    database="property_db",
-    user="postgres",
-    password="MYSQLramya31",
-    port="5432"
+    host=st.secrets["DB_HOST"],
+    database=st.secrets["DB_NAME"],
+    user=st.secrets["DB_USER"],
+    password=st.secrets["DB_PASSWORD"],
+    port=st.secrets["DB_PORT"]
 )
 
 cursor = conn.cursor()
